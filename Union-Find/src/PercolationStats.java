@@ -18,23 +18,7 @@ public class PercolationStats {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// a main() method that takes two command-line arguments N and T
-		if (args.length < 2)
-		{
-			throw new java.lang.IllegalArgumentException();
-		}
-		int argsN= Integer.parseInt(args[0]);
-		int argsT=Integer.parseInt(args[1]);
-		
-		PercolationStats PS= new PercolationStats(argsN,argsT);
-		double mean= PS.mean();
-		double SD=PS.stddev();
-		System.out.print("mean						="+mean);
-		System.out.print("stddev					="+SD);
-		System.out.print("95% confidence interval   = "+PS.confidenceHi()+","+PS.confidenceLo());
-
-	}
+	
 	
 	/**perform T independent computational experiments on an N-by-N grid
 	 * @param N which determines the value of NxN matrix
@@ -49,25 +33,24 @@ public class PercolationStats {
 		if (N<=0 || T<=0){
 			throw new java.lang.IllegalArgumentException();
 		}
-		for(int i=0;i<totalT;i++){
+		for(int i=0;i<totalT;++i){
 			Percolation P= new Percolation(N);
 			int openCount=0;
 			Boolean isPercolated=false;
 			while(!isPercolated){	//check until it gets percolated
-				int row=StdRandom.uniform(N) - 1;	//selecting the random number
-				int col=StdRandom.uniform(N) - 1;
+				int row=StdRandom.uniform(N) + 1;	//selecting the random number
+				int col=StdRandom.uniform(N) + 1;
 				if(!P.isOpen(row, col)){
 					P.open(row, col);
-					openCount++;
-					if(P.percolates()){
-						isPercolated=true;	//if percolated then set it to true
+					++openCount;
+					if(P.percolates()){		//if percolated then set it to true
+						isPercolated=true;	
 					}
 				}
-				 
 			}
 			//The fraction of sites that are opened when the system percolates 
 			//provides an estimate of the percolation threshold.
-			perThreshold[i]= (openCount/(N*N)); 
+			perThreshold[i]= ((double)openCount/(double)(N*N)); 
 		}
 		mean=StdStats.mean(perThreshold);
 		SD=StdStats.stddev(perThreshold);
@@ -93,5 +76,20 @@ public class PercolationStats {
     	return ( mean + (1.96 * SD)/(Math.sqrt(totalT)));
     }
     
+    public static void main(String[] args) {
+		// a main() method that takes two command-line arguments N and T
+		if (args.length < 2)
+		{
+			throw new java.lang.IllegalArgumentException();
+		}
+		int argsN= Integer.parseInt(args[0]);
+		int argsT=Integer.parseInt(args[1]);
+		PercolationStats PS= new PercolationStats(argsN,argsT);
+		double mean= PS.mean();
+		double SD=PS.stddev();
+		System.out.println("mean						="+mean);
+		System.out.println("stddev						="+SD);
+		System.out.println("95% confidence interval   	= "+PS.confidenceLo()+", "+PS.confidenceHi());
 
+	}
 }

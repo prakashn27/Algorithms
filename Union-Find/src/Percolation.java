@@ -11,7 +11,7 @@
 public class Percolation {
 
 	/**
-	 * Declare the datatypes needed for the class
+	 * Declare the data types needed for the class
 	 */
 	private WeightedQuickUnionUF grid;  //array initialization for storing the elements of grid
 	private int totalN; 				//PlaceHolder of total array length
@@ -25,7 +25,7 @@ public class Percolation {
 		this.grid= new WeightedQuickUnionUF(N*N+2); //Two dimensional array length + 
 																	//2(1 upper,Lower element)
 		this.state= new boolean[N*N];
-		for(int i=0;i<=(N*N);i++)
+		for(int i=0;i<(N*N);i++)
 			this.state[i]=false;
 	}
 	/**open site (row i, column j) if it is not already
@@ -38,12 +38,58 @@ public class Percolation {
 		   // open site (row i, column j) if it is not already
 		   checkIndex(row,col);	//checks for IndexOutOfBoundsException exception
 		   if(isOpen(row,col))return;
-		   int i=row-1;
-		   int j=col-1;
-		   int offset= 1*totalN +j;
+		   int mainRow= row-1;
+		   int mainCol= col-1;
+		   int offset= mainRow*totalN +mainCol;
+		   int gridOffset = offset+1;
 		   this.state[offset]=true;		//opening the grid
 		   
-	   }
+		   //check for top row
+		   if(mainRow == 0){
+			   grid.union(0, gridOffset);
+		   }
+		   //check for bottomRow
+		   if(mainRow == totalN-1 ){
+			   grid.union(gridOffset, totalN*totalN+1);
+		   }
+		   //Check the top , bottom, left , right check for 
+		   // Check Left
+		   int leftRow= mainRow;
+		   int leftCol= mainCol-1;
+		   int leftGridOffset= leftRow*totalN+leftCol + 1;
+		   if (leftCol>=0){
+			   if(isOpen(leftRow + 1,leftCol +1)){
+				  grid.union(leftGridOffset, gridOffset);
+			   }
+		   }	
+		   //check right
+		   int rightRow= mainRow;
+		   int rightCol= mainCol+1;
+		   int rigthGridOffset= rightRow*totalN+rightCol + 1;
+		   if ( rightCol < totalN){
+			   if(isOpen(rightRow + 1 ,rightCol + 1 )){
+			   grid.union(rigthGridOffset, gridOffset);
+			   }
+		   }
+		   //check up
+		   int upRow= mainRow - 1;
+		   int upCol= mainCol;
+		   int upGridOffset= upRow*totalN+upCol + 1;
+		   if ( upRow >= 0){
+			   if(isOpen(upRow +1 , upCol + 1)){
+			   grid.union(upGridOffset, gridOffset);
+			   }
+		   }
+		   //Check down
+		   int downRow= mainRow + 1;
+		   int downCol= mainCol;
+		   int downGridOffset= downRow*totalN+downCol + 1;
+		   if ( downRow < totalN){
+			   if(isOpen(downRow + 1,downCol + 1)){
+			   grid.union(downGridOffset, gridOffset);
+			   }
+		   }
+		}
 	   /**is site (row i, column j) open?
 	    * @param row number
 	    * @param column number
@@ -97,9 +143,9 @@ public class Percolation {
 	     *  
 	     */
 	 public void checkIndex(int i, int j){
-	 if(i> totalN || j>totalN || i< 1 || j<1) 
-		throw new java.lang.IndexOutOfBoundsException();
+	 if(i > totalN || j > totalN || i < 1 || j < 1) 
+		 throw new java.lang.IndexOutOfBoundsException();
 	}
-	}
+	
 
 }
