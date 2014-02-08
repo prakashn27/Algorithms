@@ -10,7 +10,7 @@
  *
  */
 public class PercolationStats {
-	
+
 	private int totalT;
 	private double[] perThreshold;
 	private double mean;
@@ -18,18 +18,18 @@ public class PercolationStats {
 	/**
 	 * @param args
 	 */
-	
-	
+
+
 	/**perform T independent computational experiments on an N-by-N grid
 	 * @param N which determines the value of NxN matrix
 	 * @param T : number of Independent COmputational Experiments
 	 * 
 	 */
 	public PercolationStats(int N, int T)  {  
-		
+
 		totalT=T;
 		perThreshold=new double[T];
-		
+
 		if (N<=0 || T<=0){
 			throw new java.lang.IllegalArgumentException();
 		}
@@ -78,10 +78,6 @@ public class PercolationStats {
     
     public static void main(String[] args) {
 		// a main() method that takes two command-line arguments N and T
-		if (args.length < 2)
-		{
-			throw new java.lang.IllegalArgumentException();
-		}
 		int argsN= Integer.parseInt(args[0]);
 		int argsT=Integer.parseInt(args[1]);
 		PercolationStats PS= new PercolationStats(argsN,argsT);

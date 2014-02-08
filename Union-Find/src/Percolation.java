@@ -142,7 +142,7 @@ public class Percolation {
 	     * @throws java.lang.IndexOutOfBoundsException
 	     *  
 	     */
-	 public void checkIndex(int i, int j){
+	 private void checkIndex(int i, int j){
 	 if(i > totalN || j > totalN || i < 1 || j < 1) 
 		 throw new java.lang.IndexOutOfBoundsException();
 	}
