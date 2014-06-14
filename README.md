@@ -1,4 +1,4 @@
-Algorithms- Part 2
+Algorithms
 ==============================
 * MIT course assignments in Book **Introduction to algorithm**
 * Course by **Princeton University**
