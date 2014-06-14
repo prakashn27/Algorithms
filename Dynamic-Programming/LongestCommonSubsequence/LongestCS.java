@@ -2,10 +2,7 @@ import java.util.*;
 /*
 Longest common subsequence
 
-input:
-output:
-
-author: mr.prakashnatarajan@outlook.com
+author: mr.prakashnatarajan@gmail.com
 */
 
 class LongestCS {
@@ -24,13 +21,30 @@ class LongestCS {
 			System.out.println();
 		}
 		program.Print_LCS(B,X,X.length,Y.length);
+		System.out.println();
+		program.Improved_Print_LCS(C,X,Y,X.length,Y.length);
+	}
+	// without using the B array
+	private void Improved_Print_LCS(int[][] c, char[] X, char[] Y, int i, int j) {
+		if( i == 0 || j == 0) {
+			System.out.print("the improved_LCS is : ");
+			return;
+		}
+		else if (X[i-1] == Y[j-1]) {
+			Improved_Print_LCS(c,X,Y,i-1,j-1);
+			System.out.print(X[i-1]+" "); 
+		}
+		else if(c[i-1][j] >= c[i][j-1]) {
+			Improved_Print_LCS(c,X,Y,i-1,j);
+		}
+		else Improved_Print_LCS(c,X,Y,i,j-1);
 	}
 	private void Print_LCS(char[][] b, char[] X, int i, int j) {
 		if( i == 0 || j == 0) {
 			System.out.print("the LCS is : ");
 			return;
 		}
-		if(b[i][j] == '@') {
+		else if(b[i][j] == '@') {
 			Print_LCS(b,X,i-1,j-1);
 			System.out.print(X[i-1]+" "); //added -1 since the input array starts with index 0
 		}
@@ -71,7 +85,7 @@ class LongestCS {
 
 
 }
-//class t return 2d array
+//class to return 2d array
 class PairOf2DArray {
 	private int[][] array1; //c is a int array
 	private char[][] array2;
