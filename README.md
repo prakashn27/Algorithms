@@ -6,5 +6,4 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [Stony Broke Algorithm Repository](http://www.cs.sunysb.edu/~algorith/)
 * [literate programs for java](http://en.literateprograms.org/Category:Programming_language:Java_)
 * [Archive of interesting code](http://www.keithschwarz.com/interesting/)
-
-
+* [Collected Algorithms](http://calgo.acm.org/)
