@@ -7,3 +7,4 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [literate programs for java](http://en.literateprograms.org/Category:Programming_language:Java_)
 * [Archive of interesting code](http://www.keithschwarz.com/interesting/)
 * [Collected Algorithms](http://calgo.acm.org/)
+* [Kent University Algorithm Repo](http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html)
