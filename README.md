@@ -9,6 +9,9 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [Collected Algorithms](http://calgo.acm.org/)
 * [Kent University Algorithm Repo](http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html)
 
-_PRACTICE_
+_PRACTICE and COMPETITIONS_
+* [TOPCODER match editorials-for Viewing OLD challenges](http://www.topcoder.com/tc?d1=match_editorials&d2=archive&module=Static)
 * [P3G](http://wcipeg.com/main)
 * [Archive of past prob set](http://www.ntnu.edu.tw/acm/ProblemSetArchive.html)
+* [IOI](http://www.ioinformatics.org/index.shtml)
+* [USACO](http://www.usaco.org/)
