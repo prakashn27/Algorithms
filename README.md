@@ -15,3 +15,6 @@ _PRACTICE and COMPETITIONS_
 * [Archive of past prob set](http://www.ntnu.edu.tw/acm/ProblemSetArchive.html)
 * [IOI](http://www.ioinformatics.org/index.shtml)
 * [USACO](http://www.usaco.org/)
+
+_RECOMMENDED READING_:
+[Mathematics for CS](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/index.htm)
