@@ -86,7 +86,7 @@ public class Inversion_using_MergeSort {
 			}else{
 				array[k] = rightArray[j];
 				j++;
-				if(i <= j) {
+				if(i <= j) {	//if seond arryay is coppied before first one then it leads to inversion
 					inversionCount =  inversionCount+(size_1 - i);
 				}
 			}
