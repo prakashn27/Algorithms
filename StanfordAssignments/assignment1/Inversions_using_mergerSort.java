@@ -1,16 +1,23 @@
 import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-public class Inversion_using_MergeSort {
-
-	/*
+/*
 	 * Inputs:
 	 * 		array - An array containing a sequence of integers.
 	 * 		start / end - The range that you want to sort.
 	 * 
 	 * Output:
-	 * 		number of inversions in the array by using MERGESort
+	 * 		number of invertions in the array by using MERGESort
+	 * Author:
+	 *	Prakash N
+	 *mail: mr.prakashnatarajan@gmail.com
 	 */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+public class MergeSort {
+
+	
 	static int inversionCount = 0;
 	public static void main(String[] args) {
 		MergeSort program = new MergeSort();
@@ -19,23 +26,32 @@ public class Inversion_using_MergeSort {
 	}
 	void start() {
 		try {
-			Scanner scanner = new Scanner(new File("IntegerArray.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("IntegerArray.txt"));
 			
 			int[] A = new int[100000];
 			int i = 0;
-			while(scanner.hasNextInt()){
+			/*while(scanner.hasNextInt()){
 				A[i] = scanner.nextInt();
+				i++;
+			}
+			*/
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				int temp = Integer.parseInt(line);
+				A[i] = temp;
 				i++;
 			}
 			//int[] A={1,3,5,2,4,6};
 			mergeSort(A, 0, A.length-1);
 		/*if(True){
-			for(int i : A) {
-				System.out.print(i + " , ");
+			for(int j : A) {
+				System.out.println(j + " , ");
 			}
-		} */
+		//} */
 		} catch(FileNotFoundException e) {
 			
+		} catch(IOException e){
+
 		}
 		System.out.println("inversionCount is"+inversionCount);
 	}
@@ -86,8 +102,10 @@ public class Inversion_using_MergeSort {
 			}else{
 				array[k] = rightArray[j];
 				j++;
-				if(i <= j) {	//if seond arryay is coppied before first one then it leads to inversion
+				//System.out.println("j loop with i , j "+i+j);
+				if(i <= j) {
 					inversionCount =  inversionCount+(size_1 - i);
+					//System.out.println("check");
 				}
 			}
 		}
