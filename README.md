@@ -20,4 +20,5 @@ _PRACTICE and COMPETITION_
 * [USACO](http://www.usaco.org/)
 
 _RECOMMENDED READING_:
-[Mathematics for CS](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/index.htm)
+[Mathematics for CS](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/index.htm)                               
+[Collection of reference for all CS topics](http://oopweb.com/)
