@@ -11,7 +11,7 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [Archive of interesting code](http://www.keithschwarz.com/interesting/)
 * [Collected Algorithms](http://calgo.acm.org/)
 * [Kent University Algorithm Repo](http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html)
-* [Algorithms in C++ n java](http://www.algolist.net/)
+* [Algoritms in Cpp and Java](http://www.algolist.net/)
 
 _PRACTICE and COMPETITION_
 * [TOPCODER match editorials-for Viewing OLD challenges](http://www.topcoder.com/tc?d1=match_editorials&d2=archive&module=Static)
