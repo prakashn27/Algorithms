@@ -1,9 +1,11 @@
 ####Things to be DONE
 
 * Pre - req
-> MIT Mathematics for Computer Science
-> Udacity - Software Testing Methods
-> Udacity - Software Debugging
+```
+MIT Mathematics for Computer Science
+Udacity - Software Testing Methods
+Udacity - Software Debugging
+```
 
 
 
