@@ -47,6 +47,6 @@ int main(){
 	printf("\n");
 	
 	//Done with array now, done with program :D
-	
+	free(a1);
 	return 0;
 }
