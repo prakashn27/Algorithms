@@ -12,6 +12,8 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [Collected Algorithms](http://calgo.acm.org/)
 * [Kent University Algorithm Repo](http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html)
 * [Algoritms in Cpp and Java](http://www.algolist.net/)
+* [Dictionary of algo and DS](http://xlinux.nist.gov/dads//)
+* [Java DS collections](http://www.java2s.com/Code/Java/Collections-Data-Structure/CatalogCollections-Data-Structure.htm)
 
 _PRACTICE and COMPETITION_
 * [TOPCODER match editorials-for Viewing OLD challenges](http://www.topcoder.com/tc?d1=match_editorials&d2=archive&module=Static)
