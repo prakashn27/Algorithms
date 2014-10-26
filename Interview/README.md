@@ -3,3 +3,6 @@ Write a function to count all the bits in an int value; e.g. the function with t
 
 Tell me how to test whether the high-order bit is set in a byte.
 * HigherOrderBit.c
+
+Program to test the Repetition of elements in the string
+*RepetitionInSting.java
