@@ -16,6 +16,7 @@ Suggested Reading: [Algorithms 4th Edition  published by Addison-Wesley](http://
 * [Java DS collections](http://www.java2s.com/Code/Java/Collections-Data-Structure/CatalogCollections-Data-Structure.htm)
 
 _PRACTICE and COMPETITION_
+* [Pair programming benifts](http://www.cs.princeton.edu/courses/archive/fall06/cos226/assignments/pairs-kindergarten.pdf)
 * [Codechef - with solutions](http://www.codechef.com/problems/easy/)
 * [TOPCODER match editorials-for Viewing OLD challenges](http://www.topcoder.com/tc?d1=match_editorials&d2=archive&module=Static)
 * [P3G](http://wcipeg.com/main)
