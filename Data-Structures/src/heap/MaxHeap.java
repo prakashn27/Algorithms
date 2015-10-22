@@ -16,6 +16,7 @@ public class MaxHeap {
 	
 	public int deleteMax() {
 		swap(N, 1, arr);
+		
 		int max = arr[N];
 		arr[N] = 0;
 		N--;
@@ -51,7 +52,7 @@ public class MaxHeap {
 			if(arr[index] > arr[maxChildIndex]) {
 				break;
 			}
-			System.out.println("max child index :" + maxChildIndex);
+			//System.out.println("max child index :" + maxChildIndex);
 			swap(index, maxChildIndex, arr);
 			index = maxChildIndex;
 		}
@@ -78,19 +79,13 @@ public class MaxHeap {
 	
 	public static void main(String[] args) {
 		MaxHeap h = new MaxHeap(20);
-		h.insert(3);
-		h.display();
-		h.insert(5);
-		h.display();
-		h.insert(8);
-		h.display();
-		h.insert(10);
-		h.display();
-		h.insert(12);
-		h.display();
-		assert(12 == h.deleteMax());
-		assert(10 == h.deleteMax());
-		h.display();
+		int[] arr = {1, 23, 12, 9, 30, 2, 50}; 
+		for(int i = 0; i < arr.length; i++) {
+			h.insert(arr[i]);
+		}
+		System.out.println("first highest element is " + h.deleteMax());
+		System.out.println("second highest element is " + h.deleteMax());
+		System.out.println("third highest element is " + h.deleteMax());
 	}
 
 }
