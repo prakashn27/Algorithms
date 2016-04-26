@@ -1,4 +1,3 @@
-package algo2;
 import java.lang.Iterable;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,10 +11,10 @@ import edu.princeton.cs.algs4.StdIn;
 
 public class WordNet {
 
-   HashMap<Integer, Synset> id2synset;
+   public HashMap<Integer, Synset> id2synset;
    Digraph G;
    SAP paths;
-   HashMap<String, Set<Integer>> noun2id;
+   public HashMap<String, Set<Integer>> noun2id;
    
    // constructor takes the name of the two input files
    public WordNet(String synsets, String hypernyms){
