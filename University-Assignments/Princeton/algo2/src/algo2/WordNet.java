@@ -14,11 +14,11 @@ public class WordNet {
 
    HashMap<Integer, Synset> id2synset;
    Digraph G;
-   HashMap<String, Bag<Integer>> noun2id;
+   HashMap<String, Set<Integer>> noun2id;
    
    // constructor takes the name of the two input files
    public WordNet(String synsets, String hypernyms){
-	   noun2id = new HashMap<String, Bag<Integer>>();
+	   noun2id = new HashMap<String, Set<Integer>>();
 	   id2synset = new HashMap<Integer, Synset>();
 		 //Read data from synsets input file 
 		In in = new In(synsets);
@@ -36,7 +36,7 @@ public class WordNet {
 			for(String s : synonyms) {
 				synset.set_nouns.add(s);
 				if(!noun2id.containsKey(s)) {
-					Bag<Integer> bag = new Bag<Integer>();
+					Set<Integer> bag = new HashSet<Integer>();
 					bag.add(id);
 					noun2id.put(s, bag);
 				} else {
@@ -73,9 +73,21 @@ public class WordNet {
 
    // distance between nounA and nounB (defined below)
    public int distance(String nounA, String nounB) {
-	   // run BFS to the distance
-	   Bag<Integer> id1_list = noun2id.get(nounA);
-	   Bag<Integer> id2_list = noun2id.get(nounB);
+	   if(!isNoun(nounA) || !isNoun(nounB)) {
+		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
+	   }
+	   // run BFS to the get the minimum distance between them
+	   
+	   Set<Integer> id1_list = noun2id.get(nounA);
+	   Set<Integer> id2_list = noun2id.get(nounB);
+	   int dist = -1;
+	   for(Integer id : id1_list) {
+		   if(id2_list.contains(id)) {
+			   break;
+		   }
+		   dist++;
+	   }
+	   
 	   
 	   return 0;
    }
@@ -83,6 +95,9 @@ public class WordNet {
    // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
    // in a shortest ancestral path (defined below)
    public String sap(String nounA, String nounB) {
+	   if(!isNoun(nounA) || !isNoun(nounB)) {
+		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
+	   }
 	   return new String();
    }
 
