@@ -14,6 +14,7 @@ public class WordNet {
 
    HashMap<Integer, Synset> id2synset;
    Digraph G;
+   SAP paths;
    HashMap<String, Set<Integer>> noun2id;
    
    // constructor takes the name of the two input files
@@ -59,6 +60,7 @@ public class WordNet {
 				G.addEdge(v, w);
 			}
 		}
+		paths = new SAP(G);
    }
 
    // returns all WordNet nouns
@@ -76,20 +78,7 @@ public class WordNet {
 	   if(!isNoun(nounA) || !isNoun(nounB)) {
 		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
 	   }
-	   // run BFS to the get the minimum distance between them
-	   
-	   Set<Integer> id1_list = noun2id.get(nounA);
-	   Set<Integer> id2_list = noun2id.get(nounB);
-	   int dist = -1;
-	   for(Integer id : id1_list) {
-		   if(id2_list.contains(id)) {
-			   break;
-		   }
-		   dist++;
-	   }
-	   
-	   
-	   return 0;
+	   return paths.length(noun2id.get(nounA), noun2id.get(nounB));
    }
 
    // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
@@ -98,7 +87,8 @@ public class WordNet {
 	   if(!isNoun(nounA) || !isNoun(nounB)) {
 		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
 	   }
-	   return new String();
+	   int result_id = paths.ancestor(noun2id.get(nounA), noun2id.get(nounB));
+	   return id2synset.get(result_id).synonyms;
    }
 
    // do unit testing of this class
