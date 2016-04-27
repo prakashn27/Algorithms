@@ -18,12 +18,12 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class SAP {
 	  
-	   Digraph paths;
+	   private Digraph paths;
 	   // constructor takes a digraph (not necessarily a DAG)
 	   public SAP(Digraph G) {
 		   paths = G;
 	   }
-	   Map<Integer, Integer> getAncestor(int v) {
+	   private Map<Integer, Integer> getAncestor(int v) {
 		  Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		  Queue<Integer> q = new LinkedList<Integer>();
 		  q.add(v);

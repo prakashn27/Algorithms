@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.lang.Iterable;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,13 +12,22 @@ import edu.princeton.cs.algs4.StdIn;
 
 public class WordNet {
 
-   public HashMap<Integer, Synset> id2synset;
-   Digraph G;
-   SAP paths;
-   public HashMap<String, Set<Integer>> noun2id;
+   private HashMap<Integer, Synset> id2synset;
+   private Digraph G;
+   private SAP paths;
+   private HashMap<String, Set<Integer>> noun2id;
+   
+   private boolean isDAG(Digraph G) {
+	   
+	   return true;
+   }
    
    // constructor takes the name of the two input files
-   public WordNet(String synsets, String hypernyms){
+   public WordNet(String synsets, String hypernyms) 
+		   throws IllegalArgumentException, IOException {
+	   if(synsets == null || hypernyms == null) {
+		   throw new NullPointerException("Error in WordNet Constructor");
+	   }
 	   noun2id = new HashMap<String, Set<Integer>>();
 	   id2synset = new HashMap<Integer, Synset>();
 		 //Read data from synsets input file 
@@ -59,6 +69,9 @@ public class WordNet {
 				G.addEdge(v, w);
 			}
 		}
+		if(!isDAG(G)) {
+			throw new IllegalArgumentException("NOT a DAG");
+		}
 		paths = new SAP(G);
    }
 
@@ -69,11 +82,15 @@ public class WordNet {
 
    // is the word a WordNet noun?
    public boolean isNoun(String word) {
+	   if(word == null) throw new NullPointerException("Exception in isNound function");
 	   return noun2id.containsKey(word);
    }
 
    // distance between nounA and nounB (defined below)
    public int distance(String nounA, String nounB) {
+	   if(nounA == null || nounB == null) {
+		   throw new NullPointerException("Error in Distance function");
+	   }
 	   if(!isNoun(nounA) || !isNoun(nounB)) {
 		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
 	   }
@@ -83,6 +100,9 @@ public class WordNet {
    // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
    // in a shortest ancestral path (defined below)
    public String sap(String nounA, String nounB) {
+	   if(nounA == null || nounB == null) {
+		   throw new NullPointerException("Error in Sap function");
+	   }
 	   if(!isNoun(nounA) || !isNoun(nounB)) {
 		   throw new IllegalArgumentException("Distance function nounA or nounB is not valid");
 	   }
