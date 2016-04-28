@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class Outcast {
 	   */
 	   return result_key;
    }
-   public static void main(String[] args)  // see test client below
+   public static void main(String[] args) throws IllegalArgumentException, IOException  // see test client below
    {
 	    WordNet wordnet = new WordNet("reference_files/wordnet/synsets.txt", "reference_files/wordnet/hypernyms.txt");
 		Outcast outcast = new Outcast(wordnet);

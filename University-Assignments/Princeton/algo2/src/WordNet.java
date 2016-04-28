@@ -2,8 +2,10 @@ import java.io.IOException;
 import java.lang.Iterable;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.Stack;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Bag;
@@ -17,8 +19,52 @@ public class WordNet {
    private SAP paths;
    private HashMap<String, Set<Integer>> noun2id;
    
-   private boolean isDAG(Digraph G) {
+   private boolean dfs(Digraph G, int v, HashMap<Integer, Boolean> visited, Stack<Integer> stack) {
+	   visited.put(v, true);
+	   stack.push(v);
+	   for(int w : G.adj(v)) {
+		   if(stack.contains(w)) {
+			   return false;
+		   }
+		   if(!dfs(G, w, visited, stack)) {
+			   return false;
+		   }
+	   }
+	   stack.pop();
+	   return true;
 	   
+   }
+   
+   private boolean isDAG(Digraph G) {
+	   HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
+	   for(int i = 0; i < G.V(); i++) {
+		   visited.put(i, false);
+	   }
+	   Stack<Integer> stack = new Stack<Integer>();
+	   for(int i = 0; i < G.V(); i++) {
+		   if(!visited.get(i)) {
+			   if(!dfs(G, i, visited, stack)) {
+				   return false;
+			   }
+		   }
+	   }
+	   // check for multiple roots
+	   /*
+	   int connected = 0;
+	   for(int i = 0; i < G.V(); i++) {
+		   int n = 0;
+		   Iterator<Integer> it = G.adj(i).iterator();
+		   if(it.hasNext()) {
+			   n = 1;
+		   }
+		   if(n == 0) {
+			   connected += 1;
+		   }
+	   }
+	   if(connected != 1) {
+		   return false;
+	   }
+	   */
 	   return true;
    }
    
@@ -111,7 +157,7 @@ public class WordNet {
    }
 
    // do unit testing of this class
-   public static void main(String[] args) {
+   public static void main(String[] args) throws IllegalArgumentException, IOException {
 	   WordNet wn = new WordNet("reference_files/wordnet/synsets.txt", "reference_files/wordnet/hypernyms.txt");
 	   System.out.println("Hello World!");
    }
