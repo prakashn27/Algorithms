@@ -1,5 +1,8 @@
 import java.util.*;
 
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 //import Queue.Node;
 /**
  * A <tt>randomized queue</tt> is similar to a stack or queue, 

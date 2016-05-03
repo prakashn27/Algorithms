@@ -1,5 +1,8 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import edu.princeton.cs.algs4.StdOut;
+
 import java.lang.NullPointerException;
 /**
  *  The <tt>Deque</tt> class is a generalization of a stack and a queue that supports 
